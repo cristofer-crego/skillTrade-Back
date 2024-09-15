@@ -6,7 +6,7 @@ database.sync({ force: true }).then(async () => {
   console.log("Database synchronized");
 
   await loadProfessions();
-  loadDemoData();
+  await loadDemoData();
 
   server.listen("5432", () => {
     console.log("listening on port", 3001);
