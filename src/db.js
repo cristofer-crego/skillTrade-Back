@@ -10,7 +10,7 @@ const PORT = process.env.PORT;
 const BDD = process.env.BDD;
 
 const database = new Sequelize(
-  `postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
+  `postgresql://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
   {
     dialect: "postgres",
     dialectOptions: {
