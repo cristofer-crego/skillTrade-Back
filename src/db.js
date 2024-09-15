@@ -5,7 +5,7 @@ const path = require("path");
 
 // Configuración de la conexión a la base de datos
 const database = new Sequelize(
-  `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.NAME}`,
+  `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.BDD}`,
   {
     dialect: "postgres",
     dialectOptions: {
