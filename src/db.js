@@ -6,7 +6,16 @@ const path = require("path");
 
 const database = new Sequelize(
   `postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
-  { logging: false }
+  {
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // Esto permite conexiones SSL inseguras
+      },
+    },
+    logging: false,
+  }
 );
 const Users = require("./models/Users")(database, DataTypes);
 const Reviews = require("./models/Reviews")(database, DataTypes);
