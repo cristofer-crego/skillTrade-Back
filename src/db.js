@@ -1,8 +1,13 @@
 require("dotenv").config();
-const { USER, PASSWORD, HOST, PORT, BDD } = process.env;
+// const { USER, PASSWORD, HOST, PORT, BDD } = process.env;
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+const USER = process.env.USER;
+const PASSWORD = process.env.PASSWORD;
+const HOST = process.env.HOST;
+const PORT = process.env.PORT;
+const BDD = process.env.BDD;
 
 const database = new Sequelize(
   `postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
@@ -11,7 +16,7 @@ const database = new Sequelize(
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Esto permite conexiones SSL inseguras
+        rejectUnauthorized: false,
       },
     },
     logging: false,
