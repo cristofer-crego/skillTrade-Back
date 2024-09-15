@@ -1,11 +1,11 @@
 require("dotenv").config();
-const { USER, PASSWORD, HOST, PORT, BDD } = process.env;
+// const { USER, PASSWORD, HOST, PORT, BDD } = process.env;
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
 const database = new Sequelize(
-  `postgresql://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
+  `postgresql://cristofer:sWleYoVqtrBQBsZZW3RNLWc3gn3pquaC@dpg-crjkajbtq21c73a3vmng-a.oregon-postgres.render.com/skilltrade`,
   {
     dialect: "postgres",
     dialectOptions: {
