@@ -23,7 +23,7 @@ server.use(cookieParser());
 // server.use(cors(corsOptions));
 server.use(
   cors({
-    origin: process.env.NEXT_PUBLIC_CORS_ORIGIN,
+    origin: "https://skill-trade-front.vercel.app",
     methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "auth"],
     credentials: true,
