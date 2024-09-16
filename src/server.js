@@ -26,7 +26,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+server.use(cors(corsOptions));
 //rutas
 server.use("/user", routeUser);
 server.use("/professions", routeProfessions);
