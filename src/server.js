@@ -13,14 +13,22 @@ const routeProfessions = require("./routes/routeProfessions");
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cookieParser());
-const corsOptions = {
-  origin: "https://skill-trade-front.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+// const corsOptions = {
+//   origin: "https://skill-trade-front.vercel.app",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
+// server.options("*", cors(corsOptions));
 
-server.use(cors(corsOptions));
-
+// server.use(cors(corsOptions));
+server.use(
+  cors({
+    origin: process.env.NEXT_PUBLIC_CORS_ORIGIN,
+    methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "auth"],
+    credentials: true,
+  })
+);
 // Manejar errores 404 para rutas no encontradas
 server.use((req, res) => {
   res.status(404).send("Not Found");
