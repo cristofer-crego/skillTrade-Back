@@ -15,13 +15,18 @@ server.use(express.json());
 server.use(cookieParser());
 
 //CORS con opciones específicas
-server.use(
-  cors({
-    origin: "https://skilltrade-back.onrender.com", //cambiaremos esto al dominio del cliente al deployar
-    credentials: true, //esto habilita el envío de cookies en solicitudes CORS
-  })
-);
+// server.use(
+//   cors({
+//     origin: "https://skilltrade-back.onrender.com", //cambiaremos esto al dominio del cliente al deployar
+//     credentials: true, //esto habilita el envío de cookies en solicitudes CORS
+//   })
+// );
+const corsOptions = {
+  origin: "https://skill-trade-front.vercel.app", // Permitir solicitudes desde este dominio
+  optionsSuccessStatus: 200,
+};
 
+app.use(cors(corsOptions));
 //rutas
 server.use("/user", routeUser);
 server.use("/professions", routeProfessions);
