@@ -13,23 +13,24 @@ const routeProfessions = require("./routes/routeProfessions");
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cookieParser());
-
-//CORS con opciones específicas
-server.use(
-  cors({
-    origin: "https://skilltrade-back.onrender.com", //cambiaremos esto al dominio del cliente al deployar
-    credentials: true, //esto habilita el envío de cookies en solicitudes CORS
-  })
-);
 const corsOptions = {
-  origin: "https://skill-trade-front.vercel.app", // Permitir solicitudes desde este dominio
-  optionsSuccessStatus: 200,
+  origin: "https://skill-trade-front.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 server.use(cors(corsOptions));
-server.get("/", (req, res) => {
-  res.send("Bienvenido a la API");
+
+// Definir tus rutas aquí
+server.use("/users", require("./routes/users"));
+server.use("/reviews", require("./routes/reviews"));
+server.use("/professions", require("./routes/professions"));
+
+// Manejar errores 404 para rutas no encontradas
+server.use((req, res) => {
+  res.status(404).send("Not Found");
 });
+
 //rutas
 server.use("/user", routeUser);
 server.use("/professions", routeProfessions);
