@@ -6,7 +6,13 @@ database.sync({ force: true }).then(async () => {
   console.log("Database synchronized");
 
   // await loadProfessions();
-  await loadDemoData();
+  loadDemoData()
+    .then(() => {
+      console.log("Datos demo cargados");
+    })
+    .catch((error) => {
+      console.error("Error al cargar datos demo:", error);
+    });
 
   server.listen("5432", () => {
     console.log("listening on port", 3001);

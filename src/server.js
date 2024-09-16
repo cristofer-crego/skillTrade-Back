@@ -27,6 +27,9 @@ const corsOptions = {
 };
 
 server.use(cors(corsOptions));
+server.get("/", (req, res) => {
+  res.send("Bienvenido a la API");
+});
 //rutas
 server.use("/user", routeUser);
 server.use("/professions", routeProfessions);
