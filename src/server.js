@@ -23,9 +23,12 @@ server.use(cookieParser());
 // server.use(cors(corsOptions));
 server.use(
   cors({
-    origin: "https://skill-trade-front.vercel.app",
+    origin: [
+      "https://skill-trade-front.vercel.app",
+      "https://skilltrade-back.onrender.com",
+    ],
     methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "auth"],
+    allowedHeaders: ["Content-Type", "auth", "Authorization"],
     credentials: true,
   })
 );
