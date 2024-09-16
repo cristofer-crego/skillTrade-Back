@@ -47,6 +47,6 @@ module.exports = {
   Users,
   Reviews,
   Professions,
-  loadProfessions,
+  // loadProfessions,
   database,
 };
