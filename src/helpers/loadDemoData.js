@@ -1,7 +1,8 @@
-const { Users, Reviews } = require("../db");
+const { Users, Reviews, Professions } = require("../db");
 const bcrypt = require("bcrypt");
 const usersDemo = require("./usersDemo");
 const reviewsDemo = require("./reviewsDemo");
+const professions = require("./professions");
 const loadDemoData = async () => {
   try {
     // Mapea sobre los usuarios para hashear las contraseñas antes de insertarlos
@@ -16,9 +17,9 @@ const loadDemoData = async () => {
     );
 
     // Inserta los usuarios en la base de datos
-    await Users.bulkCreate(usersWithHashedPasswords);
-
     await Reviews.bulkCreate(reviewsDemo);
+    await Professions.bulkCreate(professions);
+    await Users.bulkCreate(usersWithHashedPasswords);
     console.log("Usuarios creados con éxito");
   } catch (error) {
     console.error("Error al crear usuarios: ", error);
