@@ -21,11 +21,6 @@ const corsOptions = {
 
 server.use(cors(corsOptions));
 
-// Definir tus rutas aquí
-server.use("/users", require("./routes/users"));
-server.use("/reviews", require("./routes/reviews"));
-server.use("/professions", require("./routes/professions"));
-
 // Manejar errores 404 para rutas no encontradas
 server.use((req, res) => {
   res.status(404).send("Not Found");
