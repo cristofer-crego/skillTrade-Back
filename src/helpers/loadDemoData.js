@@ -17,9 +17,9 @@ const loadDemoData = async () => {
     );
 
     // Inserta los usuarios en la base de datos
-    await Reviews.bulkCreate(reviewsDemo);
     await Professions.bulkCreate(professions);
     await Users.bulkCreate(usersWithHashedPasswords);
+    await Reviews.bulkCreate(reviewsDemo);
     console.log("Usuarios creados con éxito");
   } catch (error) {
     console.error("Error al crear usuarios: ", error);
