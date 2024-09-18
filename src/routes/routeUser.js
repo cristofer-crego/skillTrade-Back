@@ -8,12 +8,14 @@ const getUSerByProfession = require("../controllers/getUSerByProfession");
 const loginUser = require("../controllers/loginUser");
 const updateUser = require("../controllers/updateUser");
 const getIdUsers = require("../controllers/getIdUsers");
+const searchNameDescripProf = require("../controllers/searchNameDescripProf");
 
 // middleware
 const registerMid = require("../middleware/registerMid");
 
 router.get("/", getAllUser);
 router.get("/:id", getIdUsers);
+router.get("/search/:profession", searchNameDescripProf);
 router.post("/profession", getUSerByProfession);
 router.post("/", registerMid, postUser);
 router.post("/login", loginUser);
