@@ -24,8 +24,8 @@ const loginUser = async (req, res) => {
 
       res.cookie("token", token, {
         httpOnly: false, //solo accesible a través de HTTP
-        secure: process.env.NODE_ENV === "production", // solo se envía a través de HTTPS en producción
-        sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax", //protección contra CSRF Strict
+        // secure: process.env.NODE_ENV === "production", // solo se envía a través de HTTPS en producción
+        sameSite: "Lax", //protección contra CSRF Strict ........process.env.NODE_ENV === "production" ? "Strict" :
         maxAge: 3600000,
       });
       const { password, ...userWithoutPassword } = existingUser.dataValues;
