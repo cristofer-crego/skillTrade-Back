@@ -15,9 +15,13 @@ server.use(express.json());
 server.use(cookieParser());
 
 //CORS con opciones específicas
+const allowedOrigins = [
+  "https://skill-trade-front.vercel.app",
+  "http://localhost:5173",
+];
 server.use(
   cors({
-    origin: "https://skill-trade-front.vercel.app", //cambiaremos esto al dominio del cliente al deployar
+    origin: allowedOrigins, //cambiaremos esto al dominio del cliente al deployar
     credentials: true, //esto habilita el envío de cookies en solicitudes CORS
   })
 );
