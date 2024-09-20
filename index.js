@@ -2,7 +2,7 @@ const server = require("./src/server.js");
 const { database, loadProfessions } = require("./src/db.js");
 const loadDemoData = require("./src/helpers/loadDemoData.js");
 
-database.sync({ force: true }).then(async () => {
+database.sync({ force: false }).then(async () => {
   console.log("Database synchronized");
 
   // await loadProfessions();
